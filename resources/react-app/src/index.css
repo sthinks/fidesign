@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Gravity";
+    src: url('./assets/font/Gravity-Bold.otf') format('opentype'),
+        url('./assets/font/Gravity-Book.otf') format('opentype'),
+        url('./assets/font/Gravity-Light.otf') format('opentype'),
+        url('./assets/font/Gravity-Regular.otf') format('opentype'),
+        url('./assets/font/Gravity-UltraLight.otf') format('opentype');
+}
+
+body {
+    position: relative;
+    font-family: "Gravity", sans-serif;
+}
+
+
+.slick-dots {
+    bottom: 0 !important;
+}
+
+.project-detail .slick-dots {
+    display: none !important;
+}
+
+.project-detail .slick-prev {
+    display: none !important;
+}
+
+.project-detail .slick-next {
+    right: 5% !important;
+    width: 80px !important;
+    height: 80px !important;
+    font-size: 50px !important;
+    background: white !important;
+    top: 45% !important;
+}
+
+.slick-dots li button:before {
+    font-size: 30px !important;
+    width: 25px !important;
+    height: 25px !important;
+    font-size: 15px !important;
+    line-height: 29px !important;
+}
+
+.slick-dots li button {
+    border: 7px solid white !important;
+    width: 25px !important;
+    height: 25px !important;
+    border-radius: 1022px;
+}
+
+/* Scrollbar özelleştirme */
+::-webkit-scrollbar {
+    width: 30px;
+    /* Scrollbar genişliği */
+}
+
+::-webkit-scrollbar-thumb {
+    /* Scrollbar dolgusunun kenar yuvarlatma değeri */
+    background-image: url('./assets/image/scroll.png');
+    /* Resmin URL'si */
+    background-size: cover;
+    /* Resmin ölçeklenmesi */
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Resmin konumu */
+}
+
+/* İsteğe bağlı: Scrollbarın tüm kısmını özelleştirebilirsiniz */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    /* Scrollbar iz sürücüsü arka plan rengi */
+}
+
+/* İsteğe bağlı: Scrollbarın üst ve alt kenarlarını özelleştirebilirsiniz */
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+    /* Scrollbar köşeleri arka plan rengi */
+}
+
+.home-card:hover .home-card_text {
+    background-color: #7db2ca;
+}
+
+
+.home-card:hover .home-card_text h3 {
+    color: #fff;
+}
+
+/* Kart giriş animasyonu */
+.card-enter {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+}
+
+.card-enter-active {
+    opacity: 1;
+    transform: translate3d(0%, 0, 0);
+    transition: opacity 300ms, transform 300ms;
+}
+
+/* Kart çıkış animasyonu */
+.card-exit {
+    opacity: 1;
+    transform: translate3d(0%, 0, 0);
+}
+
+.card-exit-active {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+    transition: opacity 300ms, transform 300ms;
+}
+
+
+@media (max-width: 767px) {
+    .project-detail .slick-next {
+        right: 10% !important;
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 20px !important;
+        background: white !important;
+        top: 40% !important;
+    }
+
+    .slick-list {
+        padding: 0px !important;
+    }
+}
