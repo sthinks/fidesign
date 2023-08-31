@@ -28,3 +28,8 @@ Route::get('/get-projects', [
     ServiceController::class,
     'getAllProjects',
 ]);
+
+Route::get('/get-project/{slug}', [
+    ServiceController::class,
+    'getByProject',
+]);

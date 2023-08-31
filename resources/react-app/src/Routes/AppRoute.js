@@ -12,7 +12,7 @@ function AppRoute() {
             <Route path="/" element={<Home />} />
             <Route path="/all-projects" element={<AllProjects />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/project-detail" element={<ProjectDetail />} />
+            <Route path="/project-detail/:slug" element={<ProjectDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
         </Routes>
