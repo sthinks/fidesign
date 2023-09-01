@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HomeBg from "../../assets/image/home-bg.png"
 import { Helmet } from 'react-helmet';
+import axios from 'axios';
+import Animation from '../../components/Animation';
+
 const initialData = [
     { id: 1, projectName: 'Project A', type: 'Type 1', year: 2022 },
     { id: 2, projectName: 'Project B', type: 'Type 2', year: 2021 },
@@ -13,94 +16,107 @@ const initialData = [
 
 function AllProjects() {
     const [data, setData] = useState(initialData);
-    const [filterType, setFilterType] = useState('');
+    const [filterArea, setFilterArea] = useState('');
     const [filterYear, setFilterYear] = useState('');
     const [filterName, setFilterName] = useState('');
+    const [dataCat, setDataCat] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // GET isteği için kullanılacak URL
+        const url = 'http://127.0.0.1:8000/api/get-projects';
+
+        // Axios ile GET isteği yapma
+        axios.get(url)
+            .then(response => {
+                console.log(response.data)
+                setData(response.data);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('An error occurred:', error);
+                setLoading(false);
+            });
+    }, []);
 
     const filteredData = data
         .filter(item => {
-            if (filterType && item.type !== filterType) {
+            if (filterArea && !item.area.toLowerCase().includes(filterArea.toLowerCase())) { // Filtreleme için "Area" ekledik
                 return false;
             }
-            if (filterYear !== '' && item.year !== parseInt(filterYear)) {
+            if (filterYear && !item.year.toLowerCase().includes(filterYear.toLowerCase())) {
                 return false;
             }
-            if (filterName && !item.projectName.toLowerCase().includes(filterName.toLowerCase())) {
+            if (filterName && !item.title.toLowerCase().includes(filterName.toLowerCase())) {
                 return false;
             }
             return true;
         })
         .sort((a, b) => b.year - a.year); // Yılı büyükten küçüğe doğru sırala
 
-    const handleTypeFilterChange = event => {
-        setFilterType(event.target.value);
-    };
 
     return (
-        <section className='container mx-auto lg:px-40 py-4'>
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>Fi Design Office - Projects</title>
-            </Helmet>
-            <img src={HomeBg} width="25%" height="auto" className='absolute right-0 bottom-0' alt='Background' />
-            <div className="flex flex-col">
-                <h1 className="text-2xl font-bold my-4">All Projects</h1>
-                <div className="flex justify-between w-full mb-4">
-                    <div className="w-full md:w-1/4">
-                        <label htmlFor="nameFilter">Name:</label>
-                        <input
-                            type="text"
-                            id="nameFilter"
-                            className="block w-full p-2 border rounded"
-                            value={filterName}
-                            onChange={e => setFilterName(e.target.value)}
-                        />
+        loading ? <Animation /> :
+            <section className='container mx-auto lg:px-40 py-4'>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>Fi Design Office - Projects</title>
+                </Helmet>
+                <img src={HomeBg} width="25%" height="auto" className='absolute right-0 bottom-0' alt='Background' />
+                <div className="flex flex-col">
+                    <h1 className="text-2xl font-bold my-4">All Projects</h1>
+                    <div className="flex justify-between w-full mb-4">
+                        <div className="w-full md:w-1/4">
+                            <label htmlFor="nameFilter">Name:</label>
+                            <input
+                                type="text"
+                                id="nameFilter"
+                                className="block w-full p-2 border rounded"
+                                value={filterName}
+                                onChange={e => setFilterName(e.target.value)}
+                            />
+                        </div>
+                        <div className="w-full md:w-1/4 mb-2 md:mb-0">
+                            <label htmlFor="typeFilter">Area:</label>
+                            <input
+                                type="text"
+                                id="areaFilter"
+                                className="block w-full p-2 border rounded"
+                                value={filterArea}
+                                onChange={e => setFilterArea(e.target.value)}
+                            />
+                        </div>
+                        <div className="w-full md:w-1/4 mb-2 md:mb-0">
+                            <label htmlFor="yearFilter">Year:</label>
+                            <input
+                                type="text"
+                                id="yearFilter"
+                                className="block w-full p-2 border rounded"
+                                value={filterYear}
+                                onChange={e => setFilterYear(e.target.value)}
+                            />
+                        </div>
                     </div>
-                    <div className="w-full md:w-1/4 mb-2 md:mb-0">
-                        <label htmlFor="typeFilter">Type:</label>
-                        <select
-                            id="typeFilter"
-                            className="block w-full p-2 border rounded"
-                            value={filterType}
-                            onChange={handleTypeFilterChange}
-                        >
-                            <option value="">All</option>
-                            <option value="Type 1">Type 1</option>
-                            <option value="Type 2">Type 2</option>
-                            {/* ... Diğer tipler */}
-                        </select>
-                    </div>
-                    <div className="w-full md:w-1/4 mb-2 md:mb-0">
-                        <label htmlFor="yearFilter">Year:</label>
-                        <input
-                            type="number"
-                            id="yearFilter"
-                            className="block w-full p-2 border rounded"
-                            value={filterYear}
-                            onChange={e => setFilterYear(e.target.value)}
-                        />
-                    </div>
-                </div>
-                <table className="w-full border-collapse border">
-                    <thead>
-                        <tr>
-                            <th className="border p-2">Project Name</th>
-                            <th className="border p-2">Type</th>
-                            <th className="border p-2">Year</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredData.map(item => (
-                            <tr key={item.id}>
-                                <td className="border p-2">{item.projectName}</td>
-                                <td className="border p-2">{item.type}</td>
-                                <td className="border p-2">{item.year}</td>
+                    <table className="w-full border-collapse border">
+                        <thead>
+                            <tr>
+                                <th className="border p-2">Project Name</th>
+                                <th className="border p-2">Area</th>
+                                <th className="border p-2">Year</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                        </thead>
+                        <tbody>
+                            {filteredData.map(item => (
+                                <tr key={item.id}>
+                                    <td className="border p-2">{item.title}</td>
+                                    <td className="border p-2">{item.area}</td>
+                                    <td className="border p-2">{item.year}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
     )
 }
 
