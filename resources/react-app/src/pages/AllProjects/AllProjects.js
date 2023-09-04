@@ -57,7 +57,7 @@ function AllProjects() {
 
     return (
         loading ? <Animation /> :
-            <section className='container mx-auto lg:px-40 py-4'>
+            <section className='container mx-auto lg:px-40 py-16 h-screen max-md:p-4'>
                 <Helmet>
                     <meta charSet="utf-8" />
                     <title>Fi Design Office - Projects</title>
@@ -65,7 +65,7 @@ function AllProjects() {
                 <img src={HomeBg} width="25%" height="auto" className='absolute right-0 bottom-0' alt='Background' />
                 <div className="flex flex-col">
                     <h1 className="text-2xl font-bold my-4">All Projects</h1>
-                    <div className="flex justify-between w-full mb-4">
+                    <div className="flex justify-between w-full mb-4 max-md:flex-col">
                         <div className="w-full md:w-1/4">
                             <label htmlFor="nameFilter">Name:</label>
                             <input

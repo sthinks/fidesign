@@ -8,7 +8,7 @@ use TCG\Voyager\Traits\Translatable;
 class Project extends Model
 {
     use Translatable;
-    protected $translatable = ['title', 'content'];
+    protected $translatable = ['title', 'content','description'];
     public function category(){
         return $this->belongsTo(Category::class, "category_id");
     }

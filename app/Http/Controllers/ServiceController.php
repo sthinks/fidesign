@@ -25,6 +25,8 @@ class ServiceController extends Controller
             if ($category->projects) {
                 
                 $category->projects = $category->projects->map(function ($project) use ($languageCode) {
+                    $project = $project->translate($languageCode);
+                    
                     if($project->image)
                     {
                         $project->image = url(
