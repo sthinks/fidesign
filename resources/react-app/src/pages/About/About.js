@@ -1,8 +1,8 @@
 import React from 'react'
-import Banner from '../../assets/image/office-photo-2.jpg'
+import Banner from '../../assets/image/office-photo-2.png'
 import Image1 from "../../assets/image/ferhat.jpg"
 import Image2 from "../../assets/image/ece-arman.jpg"
-import ReferancesBanner from "../../assets/image/office-photo-1.jpg"
+import ReferancesBanner from "../../assets/image/office-photo-1.png"
 import Referance1 from "../../assets/image/referance-1.png"
 import Referance2 from "../../assets/image/referance-2.png"
 import Referance3 from "../../assets/image/referance-3.png"
@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next'
 import Popup from 'reactjs-popup'
 
 function About() {
-    const { t } = useTranslation(); // Burada t ve i18n nesnelerini alıyoruz
+    const { t } = useTranslation();
 
     return (
         <section>
@@ -47,26 +47,7 @@ function About() {
                     </li>
                 </ul>
                 <p className='lg:px-40 py-4'>
-                    Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Quae eveniet sint
-                    exercitationem possimus aliquam
-                    repellendus unde? Debitis, mollitia
-                    ea sit ratione nostrum corporis dolorum
-                    delectus porro magni vel minus aliquid
-                    consequuntur quo deserunt, amet eos
-                    dolores esse expedita ullam cumque id
-                    blanditiis. Blanditiis sint eaque aut
-                    harum hic enim, veniam iste eveniet
-                    alias natus corrupti? Sint, corrupti
-                    laudantium suscipit eveniet consequatur
-                    soluta dignissimos facere consectetur
-                    similique libero aliquid sit. Totam
-                    tempora quam ullam impedit! Fugit,
-                    rerum, dolorem hic saepe possimus
-                    cumque corporis non, perferendis
-                    necessitatibus dignissimos harum tempora!
-                    Eveniet esse repellat debitis sint soluta.
-                    Accusantium, eius quasi? Atque, quod doloremque!
+                    {t('about1')}
                 </p>
             </div>
             <div className='container mx-auto lg:px-40 py-4 max-md:text-center'>
@@ -103,17 +84,17 @@ function About() {
                                             X
                                         </p>
                                         <h1 className='text-2xl text-white'>Ferhat İbrahimoğlu</h1>
-                                        <h1 className='text-md text-white mt-2'>Kurucu, Mimar – YTÜ</h1>
+                                        <h1 className='text-md text-white mt-2'>{t('owner')}, {t('architect')} – YTÜ</h1>
                                         <a href='mailto:ferhat@fidesignoffice.com' className='text-md text-white mt-2'>ferhat@fidesignoffice.com</a>
                                         <p className='text-white text-xs py-2'>
-                                            - Fi Design Office’de mimar ve tasarımcı.
+                                            - {t('ferhat1')}
                                         </p>
                                         <p className='text-white text-xs  py-2'>
-                                            - Yıldız Teknik Üniversitesi’ndeki mimarlık eğitimini 2019’un Ocak ayında tamamladı. Lisans yıllarında pek çok kreatif ofiste çalışmış, birden fazla yarışmada ödül ve mansiyon kazanmıştır. Yüksek lisans tez çalışmasını da mimari tasarım anadalında sürdürmektedir.</p>
+                                            - {t('ferhat2')}</p>
                                         <p className='text-white text-xs  py-2'>
-                                            - Mezuniyetinden sonra, yurtiçinde ve yurtdışında görev aldığı sosyal konut, masterplan, pavilyon, müze gibi farklı ölçeklerde projeler ile mimari vizyonunu ve perspektifini geliştirdi. Ayrıca, atölye yürütücülüğü ve misafir öğretim üyeliği ile mimarinin ara mekanlarında üretim yapmaya devam etmektedir.</p>
+                                            - {t('ferhat3')}</p>
                                         <p className='text-white text-xs'>
-                                            - 2021 yılında da Fi Design Office’i kurarak kurucu mimar olarak çalışmalarına devam etmektedir.
+                                            - {t('ferhat4')}
                                         </p>
                                     </div>
                                 </div>
@@ -149,19 +130,19 @@ function About() {
                                             X
                                         </p>
                                         <h1 className='text-2xl text-white'>Ece Arman</h1>
-                                        <h1 className='text-md text-white mt-2'>Restoratör, Mimar – İTÜ</h1>
+                                        <h1 className='text-md text-white mt-2'>{t('Restorer')}, {t('architect')} – İTÜ</h1>
                                         <a href='mailto:ece@fidesignoffice.com' className='text-md text-white mt-2'>ece@fidesignoffice.com</a>
                                         <p className='text-white text-xs py-2'>
-                                            - Fi Design Office’de mimar ve tasarımcı.
+                                            - {t('ece1')}
                                         </p>
                                         <p className='text-white text-xs  py-2'>
-                                            - İstanbul Bilgi Üniversitesi'nde başladığı Mimari Restorasyon bölümünü yüksek onur derecesiyle bitirip, eğitim hayatına İstanbul Teknik Üniversitesi Mimarlık bölümünde devam etti. Lisans kariyerinde, "Toprak Yapı Malzemeleri" üzerine çalışmalarını sürdüren Prof. Ruhi Kafescioğlu'na asistanlık yaptı. Mimarlık, restorasyon ve tasarım alanlarında, hem yurtiçi hem de yurtdışında stajlar ve workshoplara dahil oldu.
+                                            - {t('ece2')}
                                         </p>
                                         <p className='text-white text-xs  py-2'>
-                                            - Çeşitli üniversiteler bünyesinde düzenlenen etkinliklerde atölye yürütücülüğü yaparak, tasarım ve üretim üzerine çalışmalarını akademik bir çerçevede devam ettirmektedir.
+                                            - {t('ece3')}
                                         </p>
                                         <p className='text-white text-xs'>
-                                            - 2023 yılında Fi Design Office bünyesine restoratör mimar olarak katılıp çalışmalarına devam etmektedir.
+                                            - {t('ece4')}
                                         </p>
                                     </div>
                                 </div>
@@ -187,7 +168,7 @@ function About() {
                                 1 - MTH Mimarlık Mühendislik
                             </p>
                             <p className='mt-4'>
-                                İnşaat – Taahhüt
+                                {t('marka1')}
                             </p>
                         </div>
                     </a>
@@ -198,7 +179,7 @@ function About() {
                                 2 - Nika Proje Yönetimi Danışmanlık
                             </p>
                             <p className='mt-4'>
-                                Statik – Proje Yönetimi
+                                {t('marka2')}
                             </p>
                         </div>
                     </a>
@@ -209,7 +190,7 @@ function About() {
                                 3 - Farklı Mühendislik
                             </p>
                             <p className='mt-4'>
-                                Elektrik – Enerji Denetimi
+                                {t('marka3')}
                             </p>
                         </div>
                     </a>
@@ -220,7 +201,7 @@ function About() {
                                 4 - Velar Mühendislik
                             </p>
                             <p className='mt-4'>
-                                Mekanik
+                                {t('marka4')}
                             </p>
                         </div>
                     </a>

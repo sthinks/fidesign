@@ -3,6 +3,8 @@ import HomeBg from "../../assets/image/home-bg.png"
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import Animation from '../../components/Animation';
+import { useTranslation } from 'react-i18next';
+import i18n from 'i18next';
 
 const initialData = [
     { id: 1, projectName: 'Project A', type: 'Type 1', year: 2022 },
@@ -19,25 +21,33 @@ function AllProjects() {
     const [filterArea, setFilterArea] = useState('');
     const [filterYear, setFilterYear] = useState('');
     const [filterName, setFilterName] = useState('');
-    const [dataCat, setDataCat] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [lang, setLang] = useState(i18n.language);
+    const { t } = useTranslation();
 
     useEffect(() => {
         // GET isteği için kullanılacak URL
         const url = 'http://127.0.0.1:8000/api/get-projects';
 
         // Axios ile GET isteği yapma
-        axios.get(url)
+        axios.get(url, {
+            headers: {
+                "Content-Type": "application/json",
+                "Accept-Language": lang,
+            },
+        })
             .then(response => {
-                console.log(response.data)
                 setData(response.data);
                 setLoading(false);
             })
             .catch(error => {
-                console.error('An error occurred:', error);
                 setLoading(false);
             });
-    }, []);
+    }, [lang]);
+
+    i18n.on("languageChanged", (lng) => {
+        setLang(lng);
+    });
 
     const filteredData = data
         .filter(item => {
@@ -64,10 +74,10 @@ function AllProjects() {
                 </Helmet>
                 <img src={HomeBg} width="25%" height="auto" className='absolute right-0 bottom-0' alt='Background' />
                 <div className="flex flex-col">
-                    <h1 className="text-2xl font-bold my-4">All Projects</h1>
+                    <h1 className="text-2xl font-bold my-4">{t('allProjects')}</h1>
                     <div className="flex justify-between w-full mb-4 max-md:flex-col">
                         <div className="w-full md:w-1/4">
-                            <label htmlFor="nameFilter">Name:</label>
+                            <label htmlFor="nameFilter">{t('name')}:</label>
                             <input
                                 type="text"
                                 id="nameFilter"
@@ -77,7 +87,7 @@ function AllProjects() {
                             />
                         </div>
                         <div className="w-full md:w-1/4 mb-2 md:mb-0">
-                            <label htmlFor="typeFilter">Area:</label>
+                            <label htmlFor="typeFilter">{t('area')}:</label>
                             <input
                                 type="text"
                                 id="areaFilter"
@@ -87,7 +97,7 @@ function AllProjects() {
                             />
                         </div>
                         <div className="w-full md:w-1/4 mb-2 md:mb-0">
-                            <label htmlFor="yearFilter">Year:</label>
+                            <label htmlFor="yearFilter">{t('year')}:</label>
                             <input
                                 type="text"
                                 id="yearFilter"
@@ -100,9 +110,9 @@ function AllProjects() {
                     <table className="w-full border-collapse border">
                         <thead>
                             <tr>
-                                <th className="border p-2">Project Name</th>
-                                <th className="border p-2">Area</th>
-                                <th className="border p-2">Year</th>
+                                <th className="border p-2">{t('name')}</th>
+                                <th className="border p-2">{t('area')}</th>
+                                <th className="border p-2">{t('year')}</th>
                             </tr>
                         </thead>
                         <tbody>

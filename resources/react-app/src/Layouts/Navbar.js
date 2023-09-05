@@ -89,11 +89,11 @@ export default function Navbar({ fixed }) {
                                 {dropdownOpen && (
                                     <div className="md:absolute top-full right-0 w-full md:w-fit bg-white md:rounded-md md:shadow-lg z-10">
                                         <div className="max-md:flex max-md:flex-col max-md:justify-center max-md:items-center">
-                                            <a href="/all-projects" className="md:block md:px-4 md:py-4 text-black hover:bg-black hover:text-white transition duration-300 text-md max-md:text-[20px] max-md:mt-2">
-                                                BÜTÜN PROJELER
+                                            <a href="/all-projects" className="md:block md:px-4 md:py-4 text-black hover:bg-black hover:text-white transition duration-300 max-md:text-[20px] max-md:mt-2 uppercase">
+                                                {t('allProjects')}
                                             </a>
-                                            <a href="/projects" className="md:block md:px-4 md:py-4 hover:bg-black hover:text-white text-md max-md:text-[20px] transition duration-300 max-md:mt-2">
-                                                SEÇKİN PROJELER
+                                            <a href="/projects" className="md:block md:px-4 md:py-4 hover:bg-black hover:text-white max-md:text-[20px] transition duration-300 max-md:mt-2 uppercase">
+                                                {t('exclusiveProjects')}
                                             </a>
                                         </div>
                                     </div>

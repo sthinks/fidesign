@@ -6,13 +6,15 @@ import { GrNext } from 'react-icons/gr';
 import axios from 'axios';
 import { useParams } from 'react-router';
 import Animation from '../../components/Animation';
+import { useTranslation } from 'react-i18next';
 
 function ProjectDetail() {
     const [catData, setCatData] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const { t } = useTranslation();
     const { slug } = useParams();
-    console.log(catData.image_gallery)
+
     const settings = {
         className: "center",
         centerMode: true,
@@ -46,7 +48,7 @@ function ProjectDetail() {
                     <title>Fi Design Office - Projects</title>
                 </Helmet>
                 <div className='max-md:p-4 md:py-4 md:px-40'>
-                    <a href='/projects' className='font-semibold text-[30px] flex items-center flex-row gap-5 hover:underline'>Back to Projects  <MdOutlineArrowBack className='text-3xl' /></a>
+                    <a href='/projects' className='font-semibold text-[30px] flex items-center flex-row gap-5 hover:underline'>{t('geriDon')}<MdOutlineArrowBack className='text-3xl' /></a>
                 </div>
                 <Slider {...settings} className='pb-20'>
                     {catData?.image_gallery?.map((item) => (

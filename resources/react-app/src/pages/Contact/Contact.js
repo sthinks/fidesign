@@ -46,30 +46,29 @@ function Contact() {
                 </ul>
                 <ul className="mt-10">
                     <p>
-                        Stajyer Öğrenci – İstanbul
+                        {t('contact1')}
                     </p>
                     <li className="mt-4 text-gray-500">
-                        -Üniversitelerin Mimarlık bölümünden mezun,
+                        {t('contact2')}
                     </li>
                     <li className="mt-4 text-gray-500">
-                        -Farklı ölçeklerde proje üretebilen, malzeme ve uygulama detaylarına hakim,
+                        {t('contact3')}
                     </li>
                     <li className="mt-4 text-gray-500">
-                        -Tasarım ve görsel sunum yönü kuvvetli,
+                        {t('contact4')}
                     </li>
                     <li className="mt-4 text-gray-500">
-                        -Takım çalışmasına yatkın, analitik düşünme yetisi olan,
+                        {t('contact5')}
                     </li>
                     <li className="mt-4 text-gray-500">
-                        - AutoCAD, Sketchup ve Lumion programlarında yetkin,
+                        {t('contact6')}
                     </li>
                     <li className="mt-4 text-gray-500">
-                        - İyi derecede İngilizce bilen takım arkadaşları arıyoruz.
+                        {t('contact7')}
                     </li>
                 </ul>
                 <p className="mt-4 text-gray-500">
-                    Hibrit çalışma sistemine ayak uydurabilecek adayların, portfolyo ve CV’lerini wetransfer linki ile info@fidesignoffice.com
-                    adresine göndermelerini rica ederiz.
+                    {t('contact8')}
                 </p>
             </div>
             <SimpleForm contact={true} />

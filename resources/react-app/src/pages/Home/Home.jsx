@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SimpleCarousel from '../../components/Carousel/SimpleCarousel';
-import Architecture from '../../assets/image/architecture.jpg';
-import Urban from '../../assets/image/urban.jpg';
-import Interıor from '../../assets/image/interior.png';
 import SimpleForm from '../../components/SimpleForm';
 import HomeBg from "../../assets/image/home-bg.png"
 import Animation from '../../components/Animation';
+import { useTranslation } from 'react-i18next';
 
 function Home() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     // GET isteği için kullanılacak URL
@@ -36,13 +35,7 @@ function Home() {
         <SimpleCarousel />
         <section className='container mx-auto lg:px-40 py-16 text-center'>
           <p className='font-semibold text-black'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Tenetur consequatur voluptates aut atque deserunt magnam
-            ut voluptatum debitis reprehenderit culpa velit, accusamus
-            ipsam magni corporis veritatis officiis eius nobis nostrum
-            numquam! Tempore eius fugiat sint dolore, sed explicabo!
-            Facere excepturi architecto corrupti numquam perferendis
-            quas fugit soluta ipsa laudantium deleniti.
+            {t('home1')}
           </p>
         </section>
         <div className='container mx-auto lg:px-40 py-4 text-center'>

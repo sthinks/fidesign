@@ -23,15 +23,7 @@ function SimpleForm({ contact }) {
                 <div className={contact ? 'w-full' : 'md:w-3/5'}>
                     <h5 className='font-bold text-md'>{t('iletisimeGec')}</h5>
                     <p className='text-gray-500 mb-10'>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Mollitia at maiores tempora nam molestiae quisquam
-                        pariatur, quod officiis rem eligendi commodi laboriosam
-                        nemo, harum nisi porro ea deleniti, exercitationem
-                        perspiciatis est! Ut, quisquam alias inventore vel
-                        impedit nobis ipsam ipsum debitis ducimus ab deleniti,
-                        nam accusantium? Quasi cum dolorum ut asperiores
-                        hic sequi dolor, praesentium incidunt. Temporibus
-                        sint in reprehenderit.
+                        {t('contactExp')}
                     </p>
                     <Formik
                         initialValues={{ name: '', mail: '' }}
