@@ -12,8 +12,15 @@
 }
 
 body {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
     position: relative;
     font-family: "Gravity", sans-serif;
+}
+
+.custom-gradient {
+    background: linear-gradient(rgb(12, 12, 12) 0%, rgb(12, 12, 12) 6%, rgba(12, 12, 12, 0) 100%);
 }
 
 
@@ -53,35 +60,6 @@ body {
     border-radius: 1022px;
 }
 
-/* Scrollbar özelleştirme */
-::-webkit-scrollbar {
-    width: 30px;
-    /* Scrollbar genişliği */
-}
-
-::-webkit-scrollbar-thumb {
-    /* Scrollbar dolgusunun kenar yuvarlatma değeri */
-    background-image: url('./assets/image/scroll.png');
-    /* Resmin URL'si */
-    background-size: cover;
-    /* Resmin ölçeklenmesi */
-    background-position: center;
-    background-repeat: no-repeat;
-    /* Resmin konumu */
-}
-
-/* İsteğe bağlı: Scrollbarın tüm kısmını özelleştirebilirsiniz */
-::-webkit-scrollbar-track {
-    background-color: transparent;
-    /* Scrollbar iz sürücüsü arka plan rengi */
-}
-
-/* İsteğe bağlı: Scrollbarın üst ve alt kenarlarını özelleştirebilirsiniz */
-::-webkit-scrollbar-corner {
-    background-color: transparent;
-    /* Scrollbar köşeleri arka plan rengi */
-}
-
 .home-card:hover .home-card_text {
     background-color: #7db2ca;
 }
@@ -113,6 +91,35 @@ body {
     opacity: 0;
     transform: translate3d(100%, 0, 0);
     transition: opacity 300ms, transform 300ms;
+}
+
+.scale-up-center {
+    -webkit-animation: scale-up-center 50s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both;
+    animation: scale-up-center 50s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both;
+}
+
+@-webkit-keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    100% {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+}
+
+@keyframes scale-up-center {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    100% {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
 }
 
 
