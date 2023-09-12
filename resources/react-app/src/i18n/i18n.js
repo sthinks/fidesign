@@ -44,7 +44,9 @@ const lngEn = {
     "marka1": "Construction – Commitment",
     "marka2": "Static – Project Management",
     "marka3": "Electricity – Energy Audit",
-    "marka4": "mechanical"
+    "marka4": "mechanical",
+    "formBasarili": "Your form has been submitted successfully.",
+    "formBasarisiz": "An error occurred while submitting the form!"
 }
 
 const lngTR = {
@@ -89,7 +91,10 @@ const lngTR = {
     "marka1": "İnşaat – Taahhüt",
     "marka2": "Statik – Proje Yönetimi",
     "marka3": "Elektrik – Enerji Denetimi",
-    "marka4": "Mekanik"
+    "marka4": "Mekanik",
+    "formBasarili": "Formunuz başarıyla iletildi.",
+    "formBasarisiz": "Form gönderilirken bir hata oluştu!"
+
 }
 
 i18n
