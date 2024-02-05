@@ -32,7 +32,7 @@ class SendContactMail extends Mailable
     public function build()
     {
         return $this->from($this->data['mail'])
-                    ->subject('ViTO  Contact Form')
+                    ->subject('Fidesign İletişim Formu')
                     ->view('mail.contactMail')
                     ->with('data', $this->data);
     }

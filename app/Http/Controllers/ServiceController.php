@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Project;
+use App\HomeSlider;
+
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -56,7 +58,8 @@ class ServiceController extends Controller
         $languageCode = explode(',', $acceptLanguage)[0];
         $languageCode = explode('-', $languageCode)[0];
 
-        $projects = Project::withTranslations($languageCode)->with('category')->get();;
+        $projects = Project::where('is_selected',
+        1)->withTranslations($languageCode)->with('category')->get();;
         $projects = $projects->translate($languageCode);
         
         $projects->map(function ($item) {
@@ -82,9 +85,45 @@ class ServiceController extends Controller
         return response()->json($projects);
 
     }
-    public function getByProject($slug)
+    public function getAllProjectsNew(Request $request){
+        $acceptLanguage = $request->header('Accept-Language');
+        $languageCode = explode(',', $acceptLanguage)[0];
+        $languageCode = explode('-', $languageCode)[0];
+
+        $projects = Project::withTranslations($languageCode)->with('category')->get();
+        $projects = $projects->translate($languageCode);
+        
+        $projects->map(function ($item) {
+            $item->image = url(
+                sprintf('storage/%s', str_replace('\\', '/', $item->image))
+            );
+            if($item->image_gallery != null)
+           {
+               $item->image_gallery = json_decode($item->image_gallery);
+               $image_gallery = $item->image_gallery;
+               for ($i=0; $i < count($image_gallery); $i++) {
+
+                   $image_gallery[$i] = [
+                       "url" =>  url(
+                   sprintf('storage/%s', str_replace('\\', '/', $image_gallery[$i]))),
+                       "index" => $i + 1 // Index 0'dan değil 1'den başlamalı
+                   ];
+               $item->image_gallery = $image_gallery;
+               }
+           }
+        });
+        
+        return response()->json($projects);
+
+    }
+    public function getByProject(Request $request,$slug)
     {
-        $project = Project::where('slug',$slug)->first();
+        $acceptLanguage = $request->header('Accept-Language');
+        $languageCode = explode(',', $acceptLanguage)[0];
+        $languageCode = explode('-', $languageCode)[0];
+
+        $project = Project::withTranslations($languageCode)->where('slug',$slug)->first();
+        $project = $project->translate($languageCode);
         if($project->image)
         {   
             $project->image = url(
@@ -100,6 +139,19 @@ class ServiceController extends Controller
         $project->image_gallery=$projectGallery;
 
         return response()->json($project);
+    }
+    //Eklenecek
+    public function getHomeSlider()
+    {
+        $data = HomeSlider::orderBy('image_order','asc')->get();
+        
+        $data->map(function ($item) {
+            $item->image = url(
+                sprintf('storage/%s', str_replace('\\', '/', $item->image))
+            );
+        });
+
+        return response()->json($data);
     }
 
 }

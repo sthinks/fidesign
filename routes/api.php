@@ -31,8 +31,17 @@ Route::get('/get-projects', [
     ServiceController::class,
     'getAllProjects',
 ]);
+Route::get('/get-projects-all', [
+    ServiceController::class,
+    'getAllProjectsNew',
+]);
+
 
 Route::get('/get-project/{slug}', [
     ServiceController::class,
     'getByProject',
+]);
+Route::get('/get-home-slider', [
+    ServiceController::class,
+    'getHomeSlider',
 ]);

@@ -22,6 +22,7 @@ class ContactController extends Controller
         $validation = Validator::make($data, [
             'fullname' => ['required', 'string'],
             'mail' => ['required', 'string'],
+            'message' => ['required', 'string'],
         ]);
 
         if ($validation->fails()) {
@@ -38,8 +39,9 @@ class ContactController extends Controller
                 $details = [
                     'fullname' => $data['fullname'],
                     'mail' => $data['mail'],
+                    'message' => $data['message'],
                 ];
-                //Mail::to('tophüso@gmail.com')->send(new SendContactMail($details));
+                Mail::to('onurcopoglu@gmail.com')->send(new SendContactMail($details));
                 return response()->json([
                     'message' => 'Success',
                     'statusCode' => http_response_code(),

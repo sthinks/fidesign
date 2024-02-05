@@ -49,12 +49,12 @@ body {
     font-size: 30px !important;
     width: 25px !important;
     height: 25px !important;
-    font-size: 15px !important;
+    font-size: 20px !important;
     line-height: 29px !important;
 }
 
 .slick-dots li button {
-    border: 7px solid white !important;
+    border: 0!important;
     width: 25px !important;
     height: 25px !important;
     border-radius: 1022px;
@@ -136,4 +136,103 @@ body {
     .slick-list {
         padding: 0px !important;
     }
+}
+
+.slick-dots {
+    bottom: 2%!important;
+}
+
+.slick-dots li button {
+    background: transparent;
+    border: 0;
+    color: transparent;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    outline: none;
+    padding: 5px;
+}
+
+.slick-dots li button:before {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #000;
+    content: "•";
+    font-family: slick;
+    font-size: 6px;
+    height: 20px;
+    left: 0;
+    line-height: 20px;
+    opacity: .25;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 20px;
+}
+.slick-dots li.slick-active button:before {
+    color: #000;
+    opacity: .75;
+}
+.slick-dots li, .slick-dots li button {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+}
+.slick-dots li {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+    position: relative;
+}
+.slick-dots li button {
+    border-radius: 1022px;
+    height: 25px!important;
+    width: 25px!important;
+}
+.slick-dots li button:before {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #000;
+    content: "•";
+    font-family: slick;
+    font-size: 6px;
+    height: 20px;
+    left: 0;
+    line-height: 20px;
+    opacity: .25;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 20px;
+}
+.slick-dots li.slick-active button:before {
+    color: #000;
+    opacity: .75;
+}
+.fi-font{
+    font-family: sans-serif
+}
+
+
+.text-with-underline {
+  display: inline-block;
+  position: relative;
+}
+
+.text-with-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px; /* Alt çizgi kalınlığını ayarla */
+  width: 100%;
+  background-color: #000; /* Alt çizgi rengini ayarla */
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  transition: transform 0.9s ease;
+}
+
+.text-with-underline:hover::after {
+  transform-origin: bottom left;
+  transform: scaleX(1);
 }
