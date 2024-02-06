@@ -53,7 +53,7 @@ export default function Navbar({ fixed }) {
 
     return (
         <>
-            <nav className="relative flex flex-wrap items-center justify-between lg:px-40 py-2 bg-white">
+            <nav className="relative flex flex-wrap items-center justify-between px-40 max-2xl:px-14 max-xl:px-8 max-lg:px-5 py-2 bg-white">
                 <button
                     className={`absolute right-2 top-2 text-white cursor-pointer text-xl leading-none p-2 border border-solid border-black rounded-full block lg:hidden outline-none focus:outline-none z-50 ${
                         navbarOpen && "bg-black"
@@ -68,9 +68,9 @@ export default function Navbar({ fixed }) {
                     />
                 </button>
                 <div className="container mx-auto flex flex-wrap justify-between items-center ">
-                    <div className="w-full relative flex justify-between lg:w-auto lg:static  lg:justify-start max-md:justify-center items-center">
+                    <div className="w-auto w- max-md:w-full relative flex justify-between lg:static  lg:justify-start max-md:justify-center items-center">
                         <a
-                            className="max-md:flex max-md:flex-col text-sm font-bold leading-relaxed inline-block md:mr-4 whitespace-nowrap uppercase text-white md:flex md:flex-row items-center"
+                            className="max-md:flex max-md:flex-col text-sm font-bold leading-relaxed inline-block whitespace-nowrap uppercase text-white md:flex md:flex-row items-center"
                             href="/"
                         >
                             <img
@@ -96,9 +96,9 @@ export default function Navbar({ fixed }) {
                         id="example-navbar-danger"
                     >
                         <ul className="flex flex-col lg:flex-row list-none lg:ml-auto max-md:w-full max-md:mt-5">
-                            <li className="nav-item max-md:py-2 max-md:text-center md:flex md:items-center relative">
+                            <li className="nav-item max-md:py-2 max-md:text-center md:flex md:items-center relative flex justify-center items-center">
                                 <button
-                                    className={`md:flex max-md:justify-center items-center md:px-16 uppercase font-bold leading-snug transition border-none focus:outline-none duration-300 max-md:w-full ${
+                                    className={`md:flex max-md:justify-center items-center px-8 max-xl:px-4 uppercase font-bold leading-snug transition border-none focus:outline-none duration-300 max-md:w-full ${
                                         currentPage === "/projects"
                                             ? " max-md:bg-black max-md:text-white"
                                             : "text-black hover:text-[#b2b2b2] group-hover:text-[#b2b2b2]"
@@ -112,17 +112,17 @@ export default function Navbar({ fixed }) {
                                     </span>
                                 </button>
                                 {dropdownOpen && (
-                                    <div className="md:absolute top-full right-0 w-full md:w-fit bg-white md:rounded-md md:shadow-lg z-10">
+                                    <div className="md:absolute top-full w-max bg-white md:rounded-md md:shadow-lg z-10 border-2">
                                         <div className="max-md:flex max-md:flex-col max-md:justify-center max-md:items-center">
                                             <a
                                                 href="/all-projects"
-                                                className="md:block md:px-4 md:py-4 text-black hover:bg-black hover:text-white transition duration-300 max-md:text-[20px] max-md:mt-2 uppercase"
+                                                className="md:block text-center md:px-4 md:py-4 text-black hover:bg-black rounded-t-md hover:text-white transition duration-300 max-md:text-[20px] max-md:mt-2 uppercase"
                                             >
                                                 {t("allProjects")}
                                             </a>
                                             <a
                                                 href="/projects"
-                                                className="md:block md:px-4 md:py-4 hover:bg-black hover:text-white max-md:text-[20px] transition duration-300 max-md:mt-2 uppercase"
+                                                className="md:block text-center md:px-4 md:py-4 hover:bg-black  rounded-b-md hover:text-white max-md:text-[20px] transition duration-300 max-md:mt-2 uppercase"
                                             >
                                                 {t("exclusiveProjects")}
                                             </a>
@@ -132,7 +132,7 @@ export default function Navbar({ fixed }) {
                             </li>
                             <li className="nav-item max-md:py-2 max-md:text-center md:flex md:items-center">
                                 <a
-                                    className={`flex max-md:justify-center items-center md:px-16 uppercase font-bold leading-snug transition duration-300 ${
+                                    className={`flex max-md:justify-center items-center px-8 max-xl:px-4uppercase font-bold leading-snug transition duration-300 ${
                                         currentPage === "/about"
                                             ? " max-md:bg-black max-md:text-white"
                                             : "text-black hover:text-[#b2b2b2]"
@@ -146,7 +146,7 @@ export default function Navbar({ fixed }) {
                             </li>
                             <li className="nav-item md:mr-10 max-md:py-2 md:flex md:items-center">
                                 <a
-                                    className={`flex max-md:justify-center items-center md:px-16 uppercase font-bold leading-snug transition duration-300 ${
+                                    className={`flex max-md:justify-center items-center px-8 max-xl:px-4 uppercase font-bold leading-snug transition duration-300 ${
                                         currentPage === "/contact"
                                             ? " max-md:bg-black max-md:text-white"
                                             : "text-black hover:text-[#b2b2b2]"
@@ -194,12 +194,14 @@ export default function Navbar({ fixed }) {
                                 <a
                                     className="border-black border-2 rounded-full p-1 transition duration-300 group hover:bg-black ml-2"
                                     href="https://www.linkedin.com/company/fidesignoffice"
+                                    target="blank"
                                 >
                                     <GrLinkedinOption className="text-black text-lg transition duration-300 group-hover:text-white" />
                                 </a>
                                 <a
                                     className="border-black border-2 rounded-full p-1 transition duration-300 group hover:bg-black ml-2"
-                                    href="#pablo"
+                                    href="https://tr.pinterest.com/fidesignoffice/"
+                                    target="blank"
                                 >
                                     <FaPinterestP className="text-black text-lg transition duration-300 group-hover:text-white" />
                                 </a>

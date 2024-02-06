@@ -69,7 +69,7 @@ function AllProjects() {
     return loading ? (
         <Animation />
     ) : (
-        <section className="container mx-auto lg:px-40 py-16 h-screen max-md:p-4">
+        <section className="container mx-auto lg:px-40 py-16 max-md:p-4 h-auto">
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>Fi Design Office - Projects</title>

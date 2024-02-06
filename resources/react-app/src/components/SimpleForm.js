@@ -58,7 +58,9 @@ function SimpleForm({ contact }) {
             <ToastContainer />
             <div className="md:flex">
                 <div className={contact ? "w-full" : "md:w-3/5"}>
-                    <h5 className="font-bold text-md">{t("iletisimeGec")}</h5>
+                    <h5 className="font-bold text-xl max-md:text-2xl">
+                        {t("iletisimeGec")}
+                    </h5>
                     <p className="text-gray-500 mb-10">{t("contactExp")}</p>
                     <Formik
                         initialValues={{ fullname: "", mail: "", message: "" }} // initialValues düzeltildi

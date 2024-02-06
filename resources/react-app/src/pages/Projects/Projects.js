@@ -87,16 +87,18 @@ function Projects() {
     }, [selectedCategory]);
 
     useEffect(() => {
-        console.log(slug);
-
-        if (slug === "architecture" || slug === "mi̇mari̇") {
+        if (slug === "architecture" || slug === "mimari") {
             const result = data?.filter((x) => x.category_id === 3);
+            setSelectedCategory(3);
             setSelectedData(result);
         } else if (slug === "urban" || slug === "kentsel") {
             const result = data?.filter((x) => x.category_id === 5);
+            setSelectedCategory(5);
             setSelectedData(result);
         } else if (slug === "interior" || slug === "icmekan") {
             const result = data?.filter((x) => x.category_id === 6);
+            setSelectedCategory(6);
+
             setSelectedData(result);
         }
     }, [slug, data]);
