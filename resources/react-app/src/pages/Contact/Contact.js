@@ -35,7 +35,7 @@ function Contact() {
                 <ul className="mt-10" style={{ fontFamily: "sans-serif" }}>
                     <li className="flex items-center">
                         <MdLocationOn className="text-xl mr-4 max-md:flex-1" />
-                        <p className="text-lg max-md:flex-[6_6_0]">
+                        <p className="text-lg max-md:text-base max-md:flex-[6_6_0]">
                             Çobançeşme Mah. Sanayi Cad. Nish İstanbul C Blok
                             K:14 D:172 Bahçelievler / İSTANBUL
                         </p>
@@ -44,7 +44,7 @@ function Contact() {
                         <BsTelephoneFill className="text-xl mr-4 max-md:flex-1" />
                         <a
                             href="tel:02126036909"
-                            className="text-lg max-md:flex-[6_6_0]"
+                            className="text-lg max-md:text-base max-md:flex-[6_6_0]"
                         >
                             0212 603 69 09
                         </a>
@@ -59,10 +59,10 @@ function Contact() {
                         </a>
                     </li>
                     <li className="flex items-center mt-4">
-                        <BiWorld className="text-xl mr-4 max-md:flex-1" />
+                        <BiWorld className="text-xl max-md:text-base mr-4 max-md:flex-1" />
                         <a
                             href="www.fidesignoffice.com"
-                            className="text-lg max-md:flex-[6_6_0]"
+                            className="text-lg max-md:text-base max-md:flex-[6_6_0]"
                         >
                             www.fidesignoffice.com
                         </a>

@@ -37,18 +37,23 @@ function About() {
                 />
             </div>
             <div className="flex justify-center py-5 text-center flex-col items-center lg:px-40">
-                <ul className="flex items-center font-bold max-md:flex-col">
+                <ul className="flex items-center font-bold max-md:flex-wrap gap-5 max-md:justify-center">
                     <li className={`md:mr-3 text-lg`}>
                         {t("about_us_mimari")}
                     </li>
-                    <li className="md:mr-3 text-lg">•</li>
+                    <li className="md:mr-3 text-lg max-md:hidden">•</li>
+                    <li className={`text-lg`}>{t("about_us_kentsel")}</li>
+
+                    <li className="md:ml-3 mr-3 text-lg max-md:hidden">•</li>
+
                     <li className={`md:mr-3 text-lg `}>
-                        {t("about_us_kentsel")}
+                        {t("about_us_icmekan")}
                     </li>
-                    <li className="md:mr-3 text-lg">•</li>
-                    <li className={`text-lg`}>{t("about_us_icmekan")}</li>
                 </ul>
-                <p className="py-4" style={{ fontFamily: "sans-serif" }}>
+                <p
+                    className="py-4 max-md:px-4"
+                    style={{ fontFamily: "sans-serif" }}
+                >
                     {t("about1")}
                 </p>
             </div>
@@ -182,7 +187,7 @@ function About() {
                                             Ece Arman
                                         </h1>
                                         <h1 className="text-md text-black mt-2">
-                                            {t("Restorer")}, {t("architect")} –
+                                            {t("restorer")}, {t("architect")} –
                                             İTÜ
                                         </h1>
                                         <a

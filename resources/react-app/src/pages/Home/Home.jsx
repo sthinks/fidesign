@@ -25,8 +25,8 @@ function Home() {
                 },
             })
             .then((response) => {
-                console.log(response.data);
-                setData(response.data);
+                const manipulatedData = swapDataItems(response.data, 1, 2); // Örnek olarak 2. ve 3. öğelerin yerini değiştirelim
+                setData(manipulatedData); // Manipüle edilmiş veriyi set edin
                 window.scrollTo(0, 0);
             })
             .catch((error) => {
@@ -65,6 +65,14 @@ function Home() {
 
         return encodedTitle;
     };
+    const swapDataItems = (data, indexA, indexB) => {
+        const newData = [...data];
+        const temp = newData[indexA];
+        newData[indexA] = newData[indexB];
+        newData[indexB] = temp;
+        return newData;
+    };
+
     return loading ? (
         <Animation />
     ) : (
@@ -77,7 +85,7 @@ function Home() {
                 alt="Background"
             />
             <SimpleCarousel slider={slider} />
-            <section className="container mx-auto lg:px-40 py-16 text-center">
+            <section className="container mx-auto lg:px-40 py-16 text-center max-md:px-5">
                 <p className="font-semibold text-black">{t("home1")}</p>
             </section>
             <div className="container mx-auto lg:px-40 py-4 text-center">

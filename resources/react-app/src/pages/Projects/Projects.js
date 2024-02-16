@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import { useSpring, animated } from "@react-spring/web";
 import axios from "axios";
 import Animation from "../../components/Animation";
-import i18n from "i18next";
+import i18n, { t } from "i18next";
 import { useParams } from "react-router-dom";
 
 function Projects() {
@@ -31,7 +31,8 @@ function Projects() {
                 },
             })
             .then((response) => {
-                setCatData(response.data);
+                const result = swapDataItems(response.data, 1, 2);
+                setCatData(result);
                 setLoading(false);
             })
             .catch((error) => {
@@ -102,6 +103,14 @@ function Projects() {
             setSelectedData(result);
         }
     }, [slug, data]);
+    const swapDataItems = (data, indexA, indexB) => {
+        const newData = [...data];
+        const temp = newData[indexA];
+        newData[indexA] = newData[indexB];
+        newData[indexB] = temp;
+        return newData;
+    };
+
     return loading ? (
         <Animation />
     ) : (
@@ -118,10 +127,10 @@ function Projects() {
                 alt="Background"
             />
             <div className="flex justify-between items-center">
-                <ul className="flex items-center font-bold max-md:flex-col cursor-pointer">
+                <ul className="flex items-center font-bold max-md:flex-wrap max-md:gap-5 cursor-pointer w-full">
                     {catData?.map((item, i) => (
                         <div
-                            className="flex justify-center items-center"
+                            className="flex justify-center items-center max-md:flex-wrap"
                             key={i}
                         >
                             <li
@@ -137,16 +146,26 @@ function Projects() {
                             <li
                                 className={
                                     catData.length - 1 === i
-                                        ? "hidden"
-                                        : "md:mr-3 text-lg"
+                                        ? "hidden max-md:hidden"
+                                        : "md:mr-3 text-lg max-md:hidden"
                                 }
                             >
                                 •
                             </li>
                         </div>
                     ))}
+                    <li
+                        className={
+                            selectedCategory === 100
+                                ? "md:mr-3 text-lg text-[#7db2ca] uppercase cursor-pointer hidden max-md:block"
+                                : "md:mr-3 text-lg  uppercase cursor-pointer hidden max-md:block"
+                        }
+                        onClick={() => handleCategoryChange(100)}
+                    >
+                        ALL
+                    </li>
                 </ul>
-                <ul>
+                <ul className="max-md:hidden">
                     <li
                         className={
                             selectedCategory === 100
@@ -155,7 +174,7 @@ function Projects() {
                         }
                         onClick={() => handleCategoryChange(100)}
                     >
-                        ALL
+                        {t("hepsi")}
                     </li>
                 </ul>
             </div>

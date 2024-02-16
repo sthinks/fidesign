@@ -41,12 +41,12 @@ function SimpleCarousel({ slider }) {
             {slider?.map((item, i) => (
                 <div
                     key={i}
-                    className="relative h-[calc(100vh-91px)] focus:outline-none"
+                    className="relative h-[calc(100vh-91px)] max-lg:h-[500px] max-md:h-[350px] max-sm:h-[300px] focus:outline-none"
                 >
                     <div className="absolute h-full w-full r-0 t-0 custom-gradient" />
                     <img
                         src={item.image}
-                        className="scale-up-center transition-transform max-md:w-full max-md:object-cover h-[calc(100vh-91px)] md:h-[calc(100vh-91px)]"
+                        className="scale-up-center transition-transform max-md:w-full max-md:object-cover h-[calc(100vh-91px)]  max-lg:h-auto max-lg:object-cover max-lg:w-full"
                         width="100%"
                         height="auto"
                         alt="Slider"
