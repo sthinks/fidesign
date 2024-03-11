@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Slider from "react-slick";
 import { MdOutlineArrowBack } from "react-icons/md";
-import { GrNext } from "react-icons/gr";
+import { GrNext, GrPrevious } from "react-icons/gr";
 import axios from "axios";
 import { useParams } from "react-router";
 import Animation from "../../components/Animation";
@@ -21,11 +21,20 @@ function ProjectDetail() {
         infinite: false,
         centerPadding: "360px",
         nextArrow: <GrNext />,
+        prevArrow: <GrPrevious />,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    centerPadding: "50px",
+                },
+            },
+        ],
     };
 
     useEffect(() => {
         // GET isteği için kullanılacak URL
-        const url = `http://127.0.0.1:8000/api/get-project/${slug}`;
+        const url = `https://fidesignoffice.com/api/get-project/${slug}`;
         window.scrollTo(0, 0);
         // Axios ile GET isteği yapma
         axios

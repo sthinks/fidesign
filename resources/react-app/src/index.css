@@ -33,7 +33,13 @@ body {
 }
 
 .project-detail .slick-prev {
-    display: none !important;
+    left: 5% !important;
+    width: 80px !important;
+    height: 80px !important;
+    font-size: 50px !important;
+    background: white !important;
+    top: 45% !important;
+    z-index: 99999999;
 }
 
 .project-detail .slick-next {
@@ -124,6 +130,15 @@ body {
 
 
 @media (max-width: 767px) {
+    .project-detail .slick-prev{
+        left: 10% !important;
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 20px !important;
+        background: white !important;
+        top: 40% !important;
+    }
+    
     .project-detail .slick-next {
         right: 10% !important;
         width: 30px !important;

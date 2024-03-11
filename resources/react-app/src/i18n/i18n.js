@@ -103,7 +103,7 @@ const resources = {
             takim: "Takım",
             referanslar: "Referanslar",
             iletisimNavbar: "İLETİŞİM",
-            geriDon: "Projeye Geri Dön",
+            geriDon: "Projelere geri dön",
             contact1: "Stajyer Öğrenci – İstanbul",
             contact2: "- Üniversitelerin Mimarlık bölümünden mezun,",
             contact3:
